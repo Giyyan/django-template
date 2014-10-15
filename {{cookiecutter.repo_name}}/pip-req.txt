@@ -1,4 +1,4 @@
-django>=1.7;<1.8
+django>=1.7,<1.8
 pillow==2.6.1
 ipython
 django-debug-toolbar

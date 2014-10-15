@@ -3,5 +3,6 @@
     "repo_name":"repo_name",
     "author_name": "Your Name",
     "email": "Your email",
-    "description": "A short description of the project."
+    "description": "A short description of the project.",
+    "with_docs": "yes"
 }
