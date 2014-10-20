@@ -1,4 +1,15 @@
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{ cookiecutter.db_name }}',
+        'USER': '{{ cookiecutter.db_user }}',
+        'PASSWORD': '{{ cookiecutter.db_password }}',
+        'HOST': '{{ cookiecutter.db_host }}',
+        'PORT': '{{ cookiecutter.db_port }}',
+    }
+}
+
 INSTALLED_APPS += (
     'debug_toolbar',
     'django_extensions',

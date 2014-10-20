@@ -29,18 +29,26 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = (
+
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+)
 
+THIRD_APPS = (
     'sorl.thumbnail',
+)
 
+PROJECT_APPS = (
     'apps.core',
 )
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + PROJECT_APPS
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,11 +71,11 @@ WSGI_APPLICATION = '{{cookiecutter.repo_name}}.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': {{ cookiecutter.db_name }},
-        'USER': {{ cookiecutter.db_user }},
-        'PASSWORD': {{ cookiecutter.db_password }},
-        'HOST': {{ cookiecutter.db_host }},
-        'PORT': {{ cookiecutter.db_port }},
+        'NAME': '{{ cookiecutter.db_name }}',
+        'USER': '{{ cookiecutter.db_user }}',
+        'PASSWORD': '{{ cookiecutter.db_password }}',
+        'HOST': '{{ cookiecutter.db_host }}',
+        'PORT': '{{ cookiecutter.db_port }}',
     }
 }
 

@@ -1,0 +1,6 @@
+-r base.txt
+Sphinx
+django-extensions
+ipython
+ipdb
+django-debug-toolbar
