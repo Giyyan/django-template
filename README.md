@@ -10,6 +10,6 @@ Usage
 ======
 
 ```
-cookiecutter git@git.anvil8.com/django-template.git
+cookiecutter git@git.anvil8.com:giyyan/django-template.git
 ```
 
