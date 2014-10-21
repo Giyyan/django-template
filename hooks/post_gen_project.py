@@ -17,7 +17,7 @@ if not config.get('git_url'):
         'description': config.get('description'),
     }
     r = requests.post("http://git.anvil8.com/api/v3/projects?private_token={}".format(config.get('gitlab_token'),))
-    response = json.loads(r.json())
+    response = r.json()
     config['git_url'] = 'git@git.anvil8.com:{}.git'.format(response.get('path_with_namespace'),)
 
 local('git init')
