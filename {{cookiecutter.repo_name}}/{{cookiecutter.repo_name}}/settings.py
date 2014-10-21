@@ -71,7 +71,7 @@ WSGI_APPLICATION = '{{cookiecutter.repo_name}}.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '{{ cookiecutter.db_name }}',
+        'NAME': '{{ cookiecutter.repo_name }}',
         'USER': '{{ cookiecutter.db_user }}',
         'PASSWORD': '{{ cookiecutter.db_password }}',
         'HOST': '{{ cookiecutter.db_host }}',

@@ -12,15 +12,22 @@ J = Jenkins('http://ci.anvil8.com',
             password=config.get('ci_apitoken'))
 
 if not config.get('git_url'):
-    data = {
+    create_project_data = {
         'name': config.get('repo_name'),
         'description': config.get('description'),
     }
-    print(data)
-    r = requests.post("http://git.anvil8.com/api/v3/projects?private_token={}".format(config.get('gitlab_token'),), data=data)
+
+    r = requests.post("http://git.anvil8.com/api/v3/projects?private_token={}".format(config.get('gitlab_token'),), data=create_project_data)
     response = r.json()
-    print(response)
+    print("Create git repo on http://git.anvil8.com")
     config['git_url'] = 'git@git.anvil8.com:{}.git'.format(response.get('path_with_namespace'),)
+
+    add_member_data = {
+        'id': response.get('id'),
+        'user_id': 28,
+        'access_level': 20
+    }
+    r = requests.post("http://git.anvil8.com/api/v3/project/{}/members?private_token={}".format(config.get('gitlab_token'), response.get('id')), data=add_member_data)
 
 local('git init')
 local('git remote add origin {}'.format(config.get('git_url')))

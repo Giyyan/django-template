@@ -2,7 +2,7 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '{{ cookiecutter.db_name }}',
+        'NAME': '{% if cookiecutter.db_name %}{{ cookiecutter.db_name }}{% else %}{{cookiecutter.repo_name}}{% endif %}',
         'USER': '{{ cookiecutter.db_user }}',
         'PASSWORD': '{{ cookiecutter.db_password }}',
         'HOST': '{{ cookiecutter.db_host }}',
