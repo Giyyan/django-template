@@ -16,13 +16,14 @@ if not config.get('git_url'):
         'name': config.get('repo_name'),
         'description': config.get('description'),
     }
+    print(data)
     r = requests.post("http://git.anvil8.com/api/v3/projects?private_token={}".format(config.get('gitlab_token'),))
     response = r.json()
+    print(response)
     config['git_url'] = 'git@git.anvil8.com:{}.git'.format(response.get('path_with_namespace'),)
 
 local('git init')
 local('git remote add origin {}'.format(config.get('git_url')))
-
 
 print('Create project on Jenkins')
 new_job = J.copy_job('template_project', config.get('repo_name'))
