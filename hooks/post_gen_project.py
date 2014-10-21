@@ -1,21 +1,23 @@
 import shutil
 import json
-try:
-    # For Python 3.0 and later
-    from urllib.request import Request
-except ImportError:
-    # Fall back to Python 2's urllib2
-    from urllib2 import Request
+from jenkinsapi.jenkins import Jenkins
+from fabric.api import local
 
-# config = json.loads(open('./config/config.json', 'r').read())
 
-config = {
-    "repo_name": 'test'
-}
+config = json.loads(open('./config/config.json', 'r').read())
 
-print(open('./config/config.json', 'r').read())
+J = Jenkins('http://ci.anvil8.com', username=config.get('ci_username'),
+            password=config.get('ci_apikey'))
 
-print('Create project on Jenkins', config['repo_name'])
-# req = Request('http://ci.anvil8.com/createItem?name={{', data, headers)
+if not config.get('git_url'):
+    pass
+
+local('git init')
+local('git remote add origin {}'.format(config.get('git_url')))
+
+
+print('Create project on Jenkins')
+new_job = J.copy_job('template_project', config.get('repo_name'))
+new_job.modify_scm_url(config.get('git_url'))
 
 shutil.rmtree('./config')

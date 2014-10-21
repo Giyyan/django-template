@@ -1,4 +1,6 @@
 {
   "git_url": "{{cookiecutter.git_url}}",
-  "repo_name": "{{cookiecutter.repo_name}}"
+  "repo_name": "{{cookiecutter.repo_name}}",
+  "ci_username": "karbanovich",
+  "ci_apitoken": "779dd56a6114f2cf1d63b0408a80fa2f"
 }

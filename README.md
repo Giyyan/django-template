@@ -2,7 +2,7 @@ Installation
 ======
 
 ```
-pip install cookiecutter
+pip install cookiecutter jenkinsapi fabric
 ```
 
 
