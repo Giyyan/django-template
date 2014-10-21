@@ -6,8 +6,9 @@ from fabric.api import local
 
 config = json.loads(open('./config/config.json', 'r').read())
 
-J = Jenkins('http://ci.anvil8.com', username=config.get('ci_username'),
-            password=config.get('ci_apikey'))
+J = Jenkins('http://ci.anvil8.com',
+            username=config.get('ci_username'),
+            password=config.get('ci_apitoken'))
 
 if not config.get('git_url'):
     pass
