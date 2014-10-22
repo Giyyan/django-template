@@ -28,6 +28,7 @@ if not config.get('git_url'):
         'access_level': 20
     }
     r = requests.post("http://git.anvil8.com/api/v3/project/{}/members?private_token={}".format(config.get('gitlab_token'), response.get('id')), data=add_member_data)
+    print(r.json())
 
 subprocess.call(['git', 'init'])
 subprocess.call(['git', 'remote', 'add', 'origin', config.get('git_url')])
