@@ -1,8 +1,7 @@
 import shutil
 import json
+import subprocess
 from jenkinsapi.jenkins import Jenkins
-from jenkinsapi.build import Build
-from fabric.api import local
 import requests
 
 
@@ -30,11 +29,11 @@ if not config.get('git_url'):
     }
     r = requests.post("http://git.anvil8.com/api/v3/project/{}/members?private_token={}".format(config.get('gitlab_token'), response.get('id')), data=add_member_data)
 
-local('git init')
-local('git remote add origin {}'.format(config.get('git_url')))
-local('git add .')
-local('git commit -am "Initial commit"')
-local('git push origin master')
+subprocess.call(['git', 'init'])
+subprocess.call(['git', 'remote', 'add', 'origin', config.get('git_url')])
+subprocess.call(['git', 'add', '.'])
+subprocess.call(['git', 'commit', '-am', '"Initial commit"'])
+subprocess.call(['git', 'push', 'origin', 'master'])
 
 print('Create project on Jenkins')
 new_job = J.copy_job('template_project', config.get('repo_name'))
