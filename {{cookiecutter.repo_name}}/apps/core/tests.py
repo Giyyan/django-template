@@ -1,3 +1,12 @@
-from django.test import TestCase
+from django.test import SimpleTestCase
 
-# Create your tests here.
+
+class TestTest(SimpleTestCase):
+    """
+    For Jenkins
+    """
+    def test_test(self):
+        """
+        For Jenkins
+        """
+        self.assertTrue(True)
