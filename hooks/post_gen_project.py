@@ -35,8 +35,8 @@ if not config.get('git_url'):
         'user_id': 28,
         'access_level': 20
     }
-    r = requests.post("http://git.anvil8.com/api/v3/projects/{}/members?private_token={}".format(config.get('gitlab_token'), response.get('id')), data=add_member_data)
-    print(r)
+    request_add = requests.post("http://git.anvil8.com/api/v3/projects/{}/members?private_token={}".format(response.get('id'), config.get('gitlab_token')), data=add_member_data)
+    print(request_add)
 
 """
 Init git repo and push project
