@@ -55,4 +55,5 @@ docs/_build/
 target/
 
 .idea/
+.DS_Store/
 local_settings.py
