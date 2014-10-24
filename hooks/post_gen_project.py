@@ -27,7 +27,7 @@ if not config.get('git_url'):
         'user_id': 28,
         'access_level': 20
     }
-    r = requests.post("http://git.anvil8.com/api/v3/project/{}/members?private_token={}".format(config.get('gitlab_token'), response.get('id')), data=add_member_data)
+    r = requests.post("http://git.anvil8.com/api/v3/projects/{}/members?private_token={}".format(config.get('gitlab_token'), response.get('id')), data=add_member_data)
     print(r)
 
 subprocess.call(['git', 'init'])
@@ -37,7 +37,7 @@ subprocess.call(['git', 'commit', '-am', '"Initial commit"'])
 subprocess.call(['git', 'push', 'origin', 'master'])
 
 print('Create project on Jenkins')
-new_job = J.copy_job('template_project', config.get('repo_name'))
+new_job = J.copy_job('template_project_python3', config.get('repo_name'))
 new_job.modify_scm_url(config.get('git_url'))
-# new_job.build
+j.build_job(config.get('repo_name'))
 shutil.rmtree('./config')
