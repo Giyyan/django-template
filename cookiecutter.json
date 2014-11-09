@@ -4,10 +4,11 @@
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
-    "db_name": "db",
+    "db_name": "",
     "db_user": "postgres",
     "db_password": "",
     "db_host": "127.0.0.1",
     "db_port": "5432",
-    "git_url": ""
+    "git_url": "",
+    "jenkins_user": ""
 }
