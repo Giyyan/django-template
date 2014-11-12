@@ -3,6 +3,6 @@
   "repo_name": "{{cookiecutter.repo_name}}",
   "description": "{{cookiecutter.description}}",
   "ci_username": "karbanovich",
-  "ci_apitoken": "779dd56a6114f2cf1d63b0408a80fa2f",
+  "ci_apitoken": "[djcn0atb",
   "gitlab_token": "WDp8QSbwUpgSnKzzuASb"
 }
