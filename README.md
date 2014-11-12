@@ -2,7 +2,7 @@ Installation
 ======
 
 ```
-pip install cookiecutter jenkinsapi fabric
+pip install cookiecutter jenkinsapi
 ```
 
 
@@ -10,6 +10,6 @@ Usage
 ======
 
 ```
-cookiecutter git@git.anvil8.com:giyyan/django-template.git
+cookiecutter https://github.com/Giyyan/django-template.git
 ```
 
