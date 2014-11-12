@@ -2,7 +2,7 @@
   "git_url": "{{cookiecutter.git_url}}",
   "repo_name": "{{cookiecutter.repo_name}}",
   "description": "{{cookiecutter.description}}",
-  "ci_username": "test",
+  "ci_username": "cutter",
   "ci_apitoken": "75b95766d54e93c71fe9c0ea6e9378c4",
   "gitlab_token": "WDp8QSbwUpgSnKzzuASb"
 }
